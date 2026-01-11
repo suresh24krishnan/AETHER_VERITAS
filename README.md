@@ -1,4 +1,16 @@
 
+
+```markdown
+---
+title: Aether Veritas
+emoji: 🛡️
+colorFrom: blue
+colorTo: gray
+sdk: streamlit
+app_file: src/app.py
+pinned: false
+---
+
 # ⚖️ AETHER_VERITAS
 
 ### **Enterprise Logic Governance & Autonomous Reconciliation Fabric**
@@ -82,3 +94,4 @@ Unlike standard "loggers," this system implements an **Active Remediation Protoc
 4. **Data Residency**: Localized Manuscripts with cloud-based API Secrets Management.
 
 ---
+

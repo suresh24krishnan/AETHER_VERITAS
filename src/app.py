@@ -6,10 +6,31 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import re
 
-# 🛡️ PROJECT AETHER_VERITAS: PATH INJECTION
+# 🛡️ PROJECT AETHER_VERITAS: PATH INJECTION & ENVIRONMENT INTEGRITY
 script_dir = os.path.dirname(os.path.abspath(__file__))
 if script_dir not in sys.path:
     sys.path.append(script_dir)
+
+# --- 🏗️ ARCHITECTURAL SELF-PROVISIONING (Cloud-Resilience Layer) ---
+def ensure_logic_fabric():
+    """Checks for vectors.npy/metadata.json. Re-indexes only if missing."""
+    v_path = os.path.join(script_dir, "..", "data", "processed", "vectors.npy")
+    m_path = os.path.join(script_dir, "..", "data", "processed", "metadata.json")
+    
+    if not os.path.exists(v_path) or not os.path.exists(m_path):
+        # We wrap in a spinner so the UI stays clean during first-time cloud setup
+        with st.spinner("🛡️ AETHER_VERITAS: Reconstructing Knowledge Fabric..."):
+            try:
+                from logic.indexer import AetherIndexer
+                # Ensure the directory exists
+                os.makedirs(os.path.dirname(v_path), exist_ok=True)
+                indexer = AetherIndexer()
+                indexer.run_indexing_pipeline() 
+            except Exception as e:
+                # Silent fallback to avoid breaking the UI
+                print(f"Provisioning skipped or failed: {e}")
+
+ensure_logic_fabric()
 
 try:
     from logic.resolver import AetherEngine 
@@ -106,7 +127,7 @@ with st.sidebar:
         st.rerun()
 
 # --- MAIN COMMAND CENTER ---
-st.header("🛡️ AETHER_VERITAS: Manuscript Portal")
+st.header("🛡️ AETHER_VERITAS: Manuscript Command Center")
 
 tab1, tab2, tab3 = st.tabs(["🚀 Audit Portal", "📖 VERITAS FAQ", "📋 Prompt Library"])
 

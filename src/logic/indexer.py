@@ -7,11 +7,20 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# 🛡️ ZERO-REGRESSION PATH ANCHOR
+# This detects if we are in src/logic or the root and finds the data folder accordingly
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if "src" in BASE_DIR:
+    PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, "../../"))
+else:
+    PROJECT_ROOT = BASE_DIR
+
 class AetherIndexer:
     def __init__(self):
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self.metadata_path = "data/processed/metadata.json"
-        self.vectors_path = "data/processed/vectors.npy"
+        # Paths are now dynamic but point to the same relative locations
+        self.metadata_path = os.path.join(PROJECT_ROOT, "data", "processed", "metadata.json")
+        self.vectors_path = os.path.join(PROJECT_ROOT, "data", "processed", "vectors.npy")
         
         self.semantic_bridge = {
             "Global_Comprehensive": "Standard Base Policy, Theft, Stolen Vehicle, Fire, Flood, Vandalism, Glass Damage",
@@ -50,10 +59,7 @@ class AetherIndexer:
         return chunks
 
     def re_index_node(self, node_name, user_intent):
-        """
-        🚀 TARGETED SELF-HEALING:
-        Updates specific node text and regenerates its specific vector.
-        """
+        """🚀 TARGETED SELF-HEALING (Unchanged Logic)"""
         if not os.path.exists(self.metadata_path) or not os.path.exists(self.vectors_path):
             return False
 
@@ -69,43 +75,47 @@ class AetherIndexer:
                 break
 
         if updated_index != -1:
-            # Re-generate embedding for ONLY this updated text
             response = self.client.embeddings.create(
                 input=all_chunks[updated_index]['text'], 
                 model="text-embedding-3-small"
             )
             new_vector = response.data[0].embedding
-            
-            # Replace in vector array and save
             vectors[updated_index] = new_vector
             np.save(self.vectors_path, vectors)
-            
             with open(self.metadata_path, 'w') as f:
                 json.dump(all_chunks, f, indent=2)
-            
             return True
         return False
+
+    def run_indexing_pipeline(self):
+        """Standard alias for app.py to trigger reconstruction"""
+        self.run({
+            "Global": os.path.join(PROJECT_ROOT, "data", "manuscripts", "global_base.xml"), 
+            "CA": os.path.join(PROJECT_ROOT, "data", "manuscripts", "ca_overlay.xml")
+        })
 
     def run(self, files_config):
         all_chunks = []
         for region, path in files_config.items():
-            if not os.path.exists(path): continue
+            if not os.path.exists(path): 
+                print(f"Skipping missing path: {path}")
+                continue
             all_chunks.extend(self.chunk_xml(path, region))
+
+        if not all_chunks:
+            return
 
         texts = [c['text'] for c in all_chunks]
         response = self.client.embeddings.create(input=texts, model="text-embedding-3-small")
         vectors = [data.embedding for data in response.data]
 
-        os.makedirs("data/processed", exist_ok=True)
+        os.makedirs(os.path.dirname(self.metadata_path), exist_ok=True)
         np.save(self.vectors_path, np.array(vectors))
         with open(self.metadata_path, "w") as f:
             json.dump(all_chunks, f, indent=2)
             
-        print("✅ Indexing Complete. Metadata and Vectors synchronized.")
+        print("✅ Indexing Complete.")
 
 if __name__ == "__main__":
     indexer = AetherIndexer()
-    indexer.run({
-        "Global": "data/manuscripts/global_base.xml", 
-        "CA": "data/manuscripts/ca_overlay.xml"
-    })
+    indexer.run_indexing_pipeline()
