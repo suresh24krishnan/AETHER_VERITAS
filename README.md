@@ -7,6 +7,7 @@ colorTo: gray
 sdk: streamlit
 app_file: src/app.py
 pinned: false
+
 ---
 
 # ⚖️ AETHER_VERITAS
