@@ -1,6 +1,4 @@
 
-
-```markdown
 ---
 title: Aether Veritas
 emoji: 🛡️
@@ -29,31 +27,31 @@ In multi-national insurance deployments, the "Truth" is rarely found in a single
 
 ## ⚛️ System Topology: The Multi-Agent DAG
 
-The following **Mermaid** specification defines the stateful transition from raw XML ingestion to autonomous remediation.
+The following Mermaid specification defines the stateful transition from raw XML ingestion to autonomous remediation.
 
 ```mermaid
 graph TD
-    subgraph "KNOWLEDGE_FABRIC (Layer 1)"
+    subgraph KNOWLEDGE_FABRIC
         A1[Regional Overlay XML] --> B{Aether_Indexer}
         A2[Global Master XML] --> B
         B --> C[Normalized Logic Map: metadata.json]
         B --> D[Semantic Vector Space: vectors.npy]
     end
 
-    subgraph "GOVERNANCE_ENGINE (Layer 2)"
+    subgraph GOVERNANCE_ENGINE
         E[Inquiry] --> F[Agentic Router: LangGraph]
         F --> G{Logic Synthesis}
-        G -- "Logic Gap Detected" --> H[Autonomous Inheritance Loop]
-        G -- "Validated Node" --> I[Veritas Certification]
+        G -- Logic Gap Detected --> H[Autonomous Inheritance Loop]
+        G -- Validated Node --> I[Veritas Certification]
         H --> I
     end
 
-    subgraph "REMEDIATION_FABRIC (Layer 3)"
+    subgraph REMEDIATION_FABRIC
         I --> J[Veritas Output]
         J --> K{Remediation Logic}
-        K -- "Anomaly: Create" --> L[Jira: Initialization]
-        K -- "Resolved: Self-Heal" --> M[Jira: Auto-Closure]
-        K -- "Critical: Escalate" --> N[Human-in-the-Loop]
+        K -- Anomaly: Create --> L[Jira: Initialization]
+        K -- Resolved: Self-Heal --> M[Jira: Auto-Closure]
+        K -- Critical: Escalate --> N[Human-in-the-Loop]
     end
 
     style H fill:#003366,color:#fff,stroke-width:2px
