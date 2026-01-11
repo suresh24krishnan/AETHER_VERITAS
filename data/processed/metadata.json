@@ -1,0 +1,145 @@
+[
+  {
+    "id": "Global_Base_LOB_Configuration_LOB_Configuration",
+    "text": "REGION: Global_Base | TAG: LOB_Configuration | ID: LOB_Configuration | CONTENT: <LOB_Configuration>\n    <Field name=\"LineOfBusiness\" value=\"Auto\"/>\n    <PolicyTerm default=\"6\" unit=\"Months\"/>\n  </LOB_Configuration>\n\n  \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "LOB_Configuration",
+      "tag": "LOB_Configuration",
+      "inheritsFrom": null,
+      "raw_xml": "<LOB_Configuration>\n    <Field name=\"LineOfBusiness\" value=\"Auto\"/>\n    <PolicyTerm default=\"6\" unit=\"Months\"/>\n  </LOB_Configuration>\n\n  \n"
+    }
+  },
+  {
+    "id": "Global_Base_Coverage_Comprehensive",
+    "text": "REGION: Global_Base | TAG: Coverage | ID: Comprehensive | CONTENT: <Coverage name=\"Comprehensive\" id=\"C-101\" category=\"PhysicalDamage\">\n      <Governance_Rules>\n        <Effective_Date value=\"2026-01-01\"/>\n        <Governance_Level value=\"Global_Master\"/>\n        <Factor_Precedence value=\"Sequential\"/>\n        <Global_Discount_Cap value=\"0.25\"/>\n      </Governance_Rules>\n\n      <RatingAlgorithm type=\"Recursive_Matrix\">\n        <BaseRate value=\"0.015\"/>\n        <RiskFactors>\n          <Factor name=\"Environmental_Surcharge\" multiplier=\"1.05\" trigger=\"StandardEnv\"",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "Comprehensive",
+      "tag": "Coverage",
+      "inheritsFrom": null,
+      "raw_xml": "<Coverage name=\"Comprehensive\" id=\"C-101\" category=\"PhysicalDamage\">\n      <Governance_Rules>\n        <Effective_Date value=\"2026-01-01\"/>\n        <Governance_Level value=\"Global_Master\"/>\n        <Factor_Precedence value=\"Sequential\"/>\n        <Global_Discount_Cap value=\"0.25\"/>\n      </Governance_Rules>\n\n      <RatingAlgorithm type=\"Recursive_Matrix\">\n        <BaseRate value=\"0.015\"/>\n        <RiskFactors>\n          <Factor name=\"Environmental_Surcharge\" multiplier=\"1.05\" trigger=\"StandardEnv\"/>\n          \n          <Factor name=\"SafeDriver\" multiplier=\"0.85\" trigger=\"ClaimsHistory=0\"/>\n          <Factor name=\"HighMileage\" multiplier=\"1.20\" trigger=\"AnnualMileage &gt; 15000\"/>\n          <Factor name=\"MultiPolicy\" multiplier=\"0.90\" trigger=\"LinkCount &gt; 1\"/>\n          <Factor name=\"MultiCar\" multiplier=\"0.85\" trigger=\"VehicleCount &gt; 1\"/>\n        </RiskFactors>\n      </RatingAlgorithm>\n      \n      <Deductibles default=\"500\">\n        <Option value=\"250\" surcharge=\"50\"/>\n        <Option value=\"500\" surcharge=\"0\"/>\n      </Deductibles>\n    </Coverage>\n\n    \n"
+    }
+  },
+  {
+    "id": "Global_Base_Governance_Rules_Governance_Rules",
+    "text": "REGION: Global_Base | TAG: Governance_Rules | ID: Governance_Rules | CONTENT: <Governance_Rules>\n        <Effective_Date value=\"2026-01-01\"/>\n        <Governance_Level value=\"Global_Master\"/>\n        <Factor_Precedence value=\"Sequential\"/>\n        <Global_Discount_Cap value=\"0.25\"/>\n      </Governance_Rules>\n\n      \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "Governance_Rules",
+      "tag": "Governance_Rules",
+      "inheritsFrom": null,
+      "raw_xml": "<Governance_Rules>\n        <Effective_Date value=\"2026-01-01\"/>\n        <Governance_Level value=\"Global_Master\"/>\n        <Factor_Precedence value=\"Sequential\"/>\n        <Global_Discount_Cap value=\"0.25\"/>\n      </Governance_Rules>\n\n      \n"
+    }
+  },
+  {
+    "id": "Global_Base_Factor_Environmental_Surcharge",
+    "text": "REGION: Global_Base | TAG: Factor | ID: Environmental_Surcharge | CONTENT: <Factor name=\"Environmental_Surcharge\" multiplier=\"1.05\" trigger=\"StandardEnv\"/>\n          \n          \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "Environmental_Surcharge",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"Environmental_Surcharge\" multiplier=\"1.05\" trigger=\"StandardEnv\"/>\n          \n          \n"
+    }
+  },
+  {
+    "id": "Global_Base_Factor_SafeDriver",
+    "text": "REGION: Global_Base | TAG: Factor | ID: SafeDriver | CONTENT: <Factor name=\"SafeDriver\" multiplier=\"0.85\" trigger=\"ClaimsHistory=0\"/>\n          \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "SafeDriver",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"SafeDriver\" multiplier=\"0.85\" trigger=\"ClaimsHistory=0\"/>\n          \n"
+    }
+  },
+  {
+    "id": "Global_Base_Factor_HighMileage",
+    "text": "REGION: Global_Base | TAG: Factor | ID: HighMileage | CONTENT: <Factor name=\"HighMileage\" multiplier=\"1.20\" trigger=\"AnnualMileage &gt; 15000\"/>\n          \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "HighMileage",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"HighMileage\" multiplier=\"1.20\" trigger=\"AnnualMileage &gt; 15000\"/>\n          \n"
+    }
+  },
+  {
+    "id": "Global_Base_Factor_MultiPolicy",
+    "text": "REGION: Global_Base | TAG: Factor | ID: MultiPolicy | CONTENT: <Factor name=\"MultiPolicy\" multiplier=\"0.90\" trigger=\"LinkCount &gt; 1\"/>\n          \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "MultiPolicy",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"MultiPolicy\" multiplier=\"0.90\" trigger=\"LinkCount &gt; 1\"/>\n          \n"
+    }
+  },
+  {
+    "id": "Global_Base_Factor_MultiCar",
+    "text": "REGION: Global_Base | TAG: Factor | ID: MultiCar | CONTENT: <Factor name=\"MultiCar\" multiplier=\"0.85\" trigger=\"VehicleCount &gt; 1\"/>\n        \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "MultiCar",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"MultiCar\" multiplier=\"0.85\" trigger=\"VehicleCount &gt; 1\"/>\n        \n"
+    }
+  },
+  {
+    "id": "Global_Base_Coverage_Uninsured_Motorist",
+    "text": "REGION: Global_Base | TAG: Coverage | ID: Uninsured_Motorist | CONTENT: <Coverage name=\"Uninsured_Motorist\" id=\"UM-202\" category=\"Liability\">\n      <Limits default=\"25000/50000\"/>\n      <Premium type=\"FlatFee\" value=\"45.00\"/>\n    </Coverage>\n  \n",
+    "metadata": {
+      "region": "Global_Base",
+      "name": "Uninsured_Motorist",
+      "tag": "Coverage",
+      "inheritsFrom": null,
+      "raw_xml": "<Coverage name=\"Uninsured_Motorist\" id=\"UM-202\" category=\"Liability\">\n      <Limits default=\"25000/50000\"/>\n      <Premium type=\"FlatFee\" value=\"45.00\"/>\n    </Coverage>\n  \n"
+    }
+  },
+  {
+    "id": "CA_Governance_Rules_Governance_Rules",
+    "text": "REGION: CA | TAG: Governance_Rules | ID: Governance_Rules | CONTENT: <Governance_Rules>\n    <Effective_Date value=\"2026-01-01\"/>\n    <Governance_Level value=\"Regional_Overlay\"/>\n    <Factor_Precedence value=\"Sequential\"/>\n  </Governance_Rules>\n\n  \n",
+    "metadata": {
+      "region": "CA",
+      "name": "Governance_Rules",
+      "tag": "Governance_Rules",
+      "inheritsFrom": null,
+      "raw_xml": "<Governance_Rules>\n    <Effective_Date value=\"2026-01-01\"/>\n    <Governance_Level value=\"Regional_Overlay\"/>\n    <Factor_Precedence value=\"Sequential\"/>\n  </Governance_Rules>\n\n  \n"
+    }
+  },
+  {
+    "id": "CA_Coverage_Comprehensive",
+    "text": "REGION: CA | TAG: Coverage | ID: Comprehensive | CONTENT: <Coverage name=\"Comprehensive\" inheritsFrom=\"Comprehensive\">\n      <RatingAlgorithm>\n        <Override action=\"Append\">\n          <Factor name=\"CA_Seismic_Surcharge\" multiplier=\"1.08\"/>\n        </Override>\n      </RatingAlgorithm>\n    </Coverage>\n\n    \n",
+    "metadata": {
+      "region": "CA",
+      "name": "Comprehensive",
+      "tag": "Coverage",
+      "inheritsFrom": "Comprehensive",
+      "raw_xml": "<Coverage name=\"Comprehensive\" inheritsFrom=\"Comprehensive\">\n      <RatingAlgorithm>\n        <Override action=\"Append\">\n          <Factor name=\"CA_Seismic_Surcharge\" multiplier=\"1.08\"/>\n        </Override>\n      </RatingAlgorithm>\n    </Coverage>\n\n    \n"
+    }
+  },
+  {
+    "id": "CA_Factor_CA_Seismic_Surcharge",
+    "text": "REGION: CA | TAG: Factor | ID: CA_Seismic_Surcharge | CONTENT: <Factor name=\"CA_Seismic_Surcharge\" multiplier=\"1.08\"/>\n        \n",
+    "metadata": {
+      "region": "CA",
+      "name": "CA_Seismic_Surcharge",
+      "tag": "Factor",
+      "inheritsFrom": null,
+      "raw_xml": "<Factor name=\"CA_Seismic_Surcharge\" multiplier=\"1.08\"/>\n        \n"
+    }
+  },
+  {
+    "id": "CA_Coverage_CA_LIA_Program",
+    "text": "REGION: CA | TAG: Coverage | ID: CA_LIA_Program | CONTENT: <Coverage name=\"CA_LIA_Program\" id=\"CA-LIA-400\">\n      <Eligibility>IncomeTier IN ('A', 'B')</Eligibility>\n      <FlatFee value=\"20.00\"/>\n      <Forms>\n        <Form name=\"LIA_Eligibility_Affidavit\" id=\"CA-FRM-LIA\" requirement=\"Mandatory\"/>\n      </Forms>\n    </Coverage>\n  \n",
+    "metadata": {
+      "region": "CA",
+      "name": "CA_LIA_Program",
+      "tag": "Coverage",
+      "inheritsFrom": null,
+      "raw_xml": "<Coverage name=\"CA_LIA_Program\" id=\"CA-LIA-400\">\n      <Eligibility>IncomeTier IN ('A', 'B')</Eligibility>\n      <FlatFee value=\"20.00\"/>\n      <Forms>\n        <Form name=\"LIA_Eligibility_Affidavit\" id=\"CA-FRM-LIA\" requirement=\"Mandatory\"/>\n      </Forms>\n    </Coverage>\n  \n"
+    }
+  }
+]

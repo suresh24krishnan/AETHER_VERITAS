@@ -1,0 +1,44 @@
+<Manuscript name="Global_Personal_Auto_Base" version="4.0">
+  <LOB_Configuration>
+    <Field name="LineOfBusiness" value="Auto" />
+    <PolicyTerm default="6" unit="Months" />
+  </LOB_Configuration>
+
+  <Coverages>
+    <Coverage name="Comprehensive" id="C-101" category="PhysicalDamage">
+      <Governance_Rules>
+        <Effective_Date value="2026-01-01" />
+        <Governance_Level value="Global_Master" />
+        <Factor_Precedence value="Sequential" />
+        <Global_Discount_Cap value="0.25" />
+      </Governance_Rules>
+
+      <RatingAlgorithm type="Recursive_Matrix">
+        <BaseRate value="0.015" />
+        <RiskFactors>
+          <Factor name="Environmental_Surcharge" multiplier="1.05" trigger="StandardEnv" />
+          
+          <Factor name="SafeDriver" multiplier="0.85" trigger="ClaimsHistory=0" />
+          <Factor name="HighMileage" multiplier="1.20" trigger="AnnualMileage > 15000" />
+          <Factor name="MultiPolicy" multiplier="0.90" trigger="LinkCount > 1" />
+          <Factor name="MultiCar" multiplier="0.85" trigger="VehicleCount > 1" />
+        </RiskFactors>
+      </RatingAlgorithm>
+      
+      <Deductibles default="500">
+        <Option value="250" surcharge="50" />
+        <Option value="500" surcharge="0" />
+      </Deductibles>
+    </Coverage>
+
+    <Coverage name="Uninsured_Motorist" id="UM-202" category="Liability">
+      <Limits default="25000/50000" />
+      <Premium type="FlatFee" value="45.00" />
+    </Coverage>
+  </Coverages>
+
+  <FormMasterList>
+    <Form name="Standard_Privacy_Notice" id="GLB-PN-001" requirement="Mandatory" />
+    <Form name="Electronic_Consent" id="GLB-ED-002" requirement="Optional" />
+  </FormMasterList>
+</Manuscript>

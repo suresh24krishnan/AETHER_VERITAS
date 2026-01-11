@@ -1,0 +1,22 @@
+# --- Security & Credentials ---
+.env
+.env.*
+secrets.toml
+auth.json
+
+# --- Python Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+env/
+venv/
+.venv/
+.Python
+
+# --- Distribution & Logs ---
+build/
+dist/
+*.egg-info/
+*.log
+.DS_Store
+Thumbs.db

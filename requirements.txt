@@ -1,0 +1,20 @@
+# --- Interface & Framework ---
+streamlit==1.52.2
+python-dotenv==1.2.1
+
+# --- Intelligence & Orchestration (AetherEngine) ---
+langgraph==1.0.5
+langgraph-checkpoint==3.0.1
+langgraph-prebuilt==1.0.5
+langchain-core==1.2.6
+langchain-openai==1.1.7
+openai==2.14.0
+
+# --- Logic & Data Handling ---
+lxml==6.0.2
+numpy==2.4.0
+pandas==2.3.3
+
+# --- Networking & Security ---
+requests==2.32.5
+urllib3==2.6.3

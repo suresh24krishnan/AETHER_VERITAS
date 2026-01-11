@@ -1,0 +1,32 @@
+<Manuscript name="CA_Auto_Overlay" inheritsFrom="Global_Personal_Auto_Base" version="1.1">
+  <Governance_Rules>
+    <Effective_Date value="2026-01-01" />
+    <Governance_Level value="Regional_Overlay" />
+    <Factor_Precedence value="Sequential" />
+  </Governance_Rules>
+
+  <Coverages>
+    <Coverage name="Comprehensive" inheritsFrom="Comprehensive">
+      <RatingAlgorithm>
+        <Override action="Append">
+          <Factor name="CA_Seismic_Surcharge" multiplier="1.08"/>
+        </Override>
+      </RatingAlgorithm>
+    </Coverage>
+
+    <Coverage name="CA_LIA_Program" id="CA-LIA-400">
+      <Eligibility>IncomeTier IN ('A', 'B')</Eligibility>
+      <FlatFee value="20.00" />
+      <Forms>
+        <Form name="LIA_Eligibility_Affidavit" id="CA-FRM-LIA" requirement="Mandatory" />
+      </Forms>
+    </Coverage>
+  </Coverages>
+
+  <FormMasterList>
+    <Override parentRef="GLB-PN-001">
+      <Form name="CA_Enhanced_Privacy_Disclosure" id="CA-PN-999" requirement="Mandatory" />
+    </Override>
+    <Form name="CA_Proposition_65_Notice" id="CA-PROP65" requirement="Mandatory" />
+  </FormMasterList>
+</Manuscript>
