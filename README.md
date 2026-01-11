@@ -1,4 +1,3 @@
-
 ---
 title: Aether Veritas
 emoji: 🛡️
@@ -8,6 +7,7 @@ sdk: streamlit
 app_file: src/app.py
 pinned: false
 ---
+
 
 # ⚖️ AETHER_VERITAS
 
@@ -27,31 +27,31 @@ In multi-national insurance deployments, the "Truth" is rarely found in a single
 
 ## ⚛️ System Topology: The Multi-Agent DAG
 
-The following Mermaid specification defines the stateful transition from raw XML ingestion to autonomous remediation.
+The following **Mermaid** specification defines the stateful transition from raw XML ingestion to autonomous remediation.
 
 ```mermaid
 graph TD
-    subgraph KNOWLEDGE_FABRIC
+    subgraph "KNOWLEDGE_FABRIC (Layer 1)"
         A1[Regional Overlay XML] --> B{Aether_Indexer}
         A2[Global Master XML] --> B
         B --> C[Normalized Logic Map: metadata.json]
         B --> D[Semantic Vector Space: vectors.npy]
     end
 
-    subgraph GOVERNANCE_ENGINE
+    subgraph "GOVERNANCE_ENGINE (Layer 2)"
         E[Inquiry] --> F[Agentic Router: LangGraph]
         F --> G{Logic Synthesis}
-        G -- Logic Gap Detected --> H[Autonomous Inheritance Loop]
-        G -- Validated Node --> I[Veritas Certification]
+        G -- "Logic Gap Detected" --> H[Autonomous Inheritance Loop]
+        G -- "Validated Node" --> I[Veritas Certification]
         H --> I
     end
 
-    subgraph REMEDIATION_FABRIC
+    subgraph "REMEDIATION_FABRIC (Layer 3)"
         I --> J[Veritas Output]
         J --> K{Remediation Logic}
-        K -- Anomaly: Create --> L[Jira: Initialization]
-        K -- Resolved: Self-Heal --> M[Jira: Auto-Closure]
-        K -- Critical: Escalate --> N[Human-in-the-Loop]
+        K -- "Anomaly: Create" --> L[Jira: Initialization]
+        K -- "Resolved: Self-Heal" --> M[Jira: Auto-Closure]
+        K -- "Critical: Escalate" --> N[Human-in-the-Loop]
     end
 
     style H fill:#003366,color:#fff,stroke-width:2px
@@ -92,4 +92,3 @@ Unlike standard "loggers," this system implements an **Active Remediation Protoc
 4. **Data Residency**: Localized Manuscripts with cloud-based API Secrets Management.
 
 ---
-
